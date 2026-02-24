@@ -8,194 +8,117 @@
 
 <style>
 html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; }
+body { font-family: 'Poppins', sans-serif; background:black; }
+.fade-section{opacity:0; transform:translateY(60px) scale(0.98); transition:all 1.2s ease;}
+.fade-section.show{opacity:1; transform:translateY(0) scale(1);}
 </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-white">
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-white py-24 text-center">
-    <div class="flex justify-center mb-6">
-        <img src="logo.png" alt="Logo Kujang Bogor Volleyball Club" class="w-40 md:w-56 drop-shadow-2xl">
-    </div>
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Kujang Bogor Volleyball Club</h1>
-    <p class="text-lg md:text-xl mb-8">Akademi Bola Voli Usia 7–17 Tahun | Kota Bogor</p>
-    <a href="#daftar" class="bg-white text-green-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">Daftar Sekarang</a>
-</section>
-
-
-
-<!-- PRESTASI + JERSEY + GALERI + VIDEO (SINGLE BACKGROUND WRAPPER) -->
-<section class="relative w-full text-white" style="background-color:#000;
-background-image:
-linear-gradient(to bottom, rgba(255,120,0,0.95), rgba(0,0,0,0.95), rgba(0,100,0,0.95)),
-linear-gradient(to bottom, rgba(255,120,0,0.95), rgba(0,0,0,0.95), rgba(0,100,0,0.95)),
-radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%),
-url('background.jpeg');
-background-size: 25% 100%, 25% 100%, 100% 100%, 37% auto;
-background-position: left top, right top, center center, center top;
-background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-background-attachment: scroll, scroll, scroll, fixed;">
-</div>
-
-
-
-<div class="relative z-10">
-
-<!-- PRESTASI -->
-<section class="py-20 max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold text-center mb-12">Prestasi Club</h2>
-<div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <h3 class="font-bold">Juara 1 Turnamen Antar Pelajar Bogor 2024</h3>
-    </div>
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <h3 class="font-bold">Juara 2 Kejurkot Bogor 2023</h3>
-    </div>
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <h3 class="font-bold">Best Player U-15 2024</h3>
-    </div>
-</div>
-</section>
-
-<!-- JERSEY -->
-<section class="py-20">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold text-center mb-10">Official Jersey</h2>
-<div class="grid md:grid-cols-3 gap-6 text-center">
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <img src="jersey1.jpg" class="rounded-xl mb-4" alt="Jersey Home">
-        <p class="font-semibold">Jersey Home 2026</p>
-    </div>
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <img src="jersey2.jpg" class="rounded-xl mb-4" alt="Jersey Away">
-        <p class="font-semibold">Jersey Away 2026</p>
-    </div>
-    <div class="bg-white/90 text-gray-800 p-6 rounded-2xl shadow-xl">
-        <img src="jersey3.jpg" class="rounded-xl mb-4" alt="Jersey Training">
-        <p class="font-semibold">Jersey Training</p>
-    </div>
-</div>
-</div>
-</section>
-
-<!-- GALERI -->
-<section class="py-20 max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold text-center mb-10">Galeri Tim</h2>
-<div class="grid md:grid-cols-3 gap-6">
-    <img src="tim1.jpg" class="rounded-2xl shadow-xl" alt="Tim 1">
-    <img src="tim2.jpg" class="rounded-2xl shadow-xl" alt="Tim 2">
-    <img src="tim3.jpg" class="rounded-2xl shadow-xl" alt="Tim 3">
-</div>
-<p class="text-center text-sm mt-4">*Ganti file gambar dengan foto asli tim Anda</p>
-</section>
-
-<!-- VIDEO HIGHLIGHT -->
-<section class="py-20 text-center">
-<h2 class="text-3xl font-bold mb-8">Video Highlight</h2>
-<div class="max-w-4xl mx-auto">
-<iframe class="w-full h-64 md:h-96 rounded-2xl shadow-xl"
-    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-    allowfullscreen>
-</iframe>
-<p class="text-sm mt-4">*Ganti link YouTube dengan highlight pertandingan Anda</p>
-</div>
-</section>
-
-</div>
-</section>
-
-<!-- ADMIN MINI BUTTON -->
-<button onclick="toggleAdmin()" class="fixed bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg text-sm hover:scale-105 transition z-50">
-Admin
-</button>
-
-<!-- ADMIN POPUP -->
-<div id="adminPopup" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-2xl shadow-xl w-80">
-    <h3 class="text-lg font-bold mb-4 text-center text-blue-600">Admin Login</h3>
-    <input id="adminPass" type="password" placeholder="Password" class="w-full p-2 border rounded-lg mb-3 text-sm">
-    <button onclick="loginAdmin()" class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm">Login</button>
-    <button onclick="toggleAdmin()" class="w-full mt-2 text-xs text-gray-500">Tutup</button>
-    <p id="adminStatus" class="text-center mt-3 text-sm"></p>
-  </div>
-</div>
-
-<!-- FORM PENDAFTARAN (GOOGLE FORM INTEGRATION) -->
-<section id="daftar" class="py-20 bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-white">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    
-    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-      Form Pendaftaran Online
-    </h2>
-    <p class="mb-8 text-white/90">
-      Daftarkan diri Anda sekarang dan bergabung bersama Kujang Bogor Volleyball Club
-    </p>
-
-    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdcWbP0uw4Dk7ACSgkFbN0InpxyMRkp5z5oKwpQIraCfcUGkw/viewform?embedded=true"
-        class="w-full"
-        height="900"
-        frameborder="0">
-        Memuat…
-      </iframe>
-    </div>
-
+<!-- HERO DRAMATIC -->
+<section class="relative text-white text-center py-32 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-black via-green-900 to-black opacity-95"></div>
+  <div class="relative z-10">
+      <div class="flex justify-center mb-8">
+          <img src="logo.png" class="w-44 md:w-60 drop-shadow-[0_0_40px_rgba(255,255,255,0.6)] animate-pulse">
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-wide">
+        KUJANG BOGOR
+      </h1>
+      <p class="text-xl md:text-2xl mb-10 text-white/80">
+        Membangun Mental Juara Sejak Usia Dini
+      </p>
+      <a href="#daftar"
+         class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl transition duration-500 hover:scale-110 animate-bounce">
+         Bergabung Sekarang
+      </a>
   </div>
 </section>
 
-<footer class="bg-blue-600 text-white text-center py-6">
+<!-- VISI MISI -->
+<section class="py-24 bg-gradient-to-b from-black to-green-900 text-center px-6">
+  <h2 class="text-4xl font-extrabold mb-10">Visi & Misi Club</h2>
+  <div class="max-w-4xl mx-auto space-y-8">
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20">
+          <h3 class="text-2xl font-bold mb-4">Visi</h3>
+          <p class="text-white/80">Tuliskan visi resmi club sesuai AD/ART di sini.</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20">
+          <h3 class="text-2xl font-bold mb-4">Misi</h3>
+          <p class="text-white/80">Tuliskan misi resmi club sesuai AD/ART di sini.</p>
+      </div>
+  </div>
+</section>
+
+<!-- KENAPA PILIH KAMI -->
+<section class="py-24 bg-black text-center px-6">
+  <h2 class="text-4xl font-extrabold mb-16">Kenapa Memilih Kami?</h2>
+  <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <h3 class="font-bold mb-3">Program Terstruktur</h3>
+          <p class="text-white/70 text-sm">Latihan dirancang sesuai usia dan level kemampuan.</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <h3 class="font-bold mb-3">Pelatih Berpengalaman</h3>
+          <p class="text-white/70 text-sm">Dibimbing oleh pelatih yang kompeten dan disiplin.</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <h3 class="font-bold mb-3">Fokus Karakter</h3>
+          <p class="text-white/70 text-sm">Membangun mental, disiplin, dan sportivitas.</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <h3 class="font-bold mb-3">Lingkungan Positif</h3>
+          <p class="text-white/70 text-sm">Komunitas yang sehat dan suportif bagi perkembangan anak.</p>
+      </div>
+  </div>
+</section>
+
+<!-- JADWAL & LOKASI -->
+<section class="py-24 bg-gradient-to-b from-green-900 to-black text-center px-6">
+  <h2 class="text-4xl font-extrabold mb-12">Jadwal & Lokasi Latihan</h2>
+  <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl border border-white/20 space-y-4">
+      <p>📍 Andy Futsal Kencana, Jl. Raya Kencana No.2, Tanah Sereal, Kota Bogor</p>
+      <p>📅 Selasa, Kamis, Sabtu, Minggu</p>
+      <p>⏰ 15.00 – 19.00 WIB</p>
+      <p>👥 Usia 7 – 17 Tahun</p>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="py-24 bg-black text-center px-6">
+  <h2 class="text-4xl font-extrabold mb-16">Testimoni Orang Tua</h2>
+  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <p class="italic text-white/80">"Anak saya menjadi lebih disiplin dan percaya diri sejak bergabung."</p>
+          <p class="mt-4 font-bold">— Orang Tua Atlet U-13</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <p class="italic text-white/80">"Latihannya terstruktur dan pelatihnya sangat profesional."</p>
+          <p class="mt-4 font-bold">— Orang Tua Atlet U-15</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
+          <p class="italic text-white/80">"Lingkungan yang positif untuk perkembangan karakter anak."</p>
+          <p class="mt-4 font-bold">— Orang Tua Atlet U-11</p>
+      </div>
+  </div>
+</section>
+
+<!-- CTA PENDAFTARAN -->
+<section id="daftar" class="py-24 bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-white text-center">
+  <h2 class="text-4xl font-extrabold mb-6">Siap Bergabung?</h2>
+  <p class="mb-10 text-white/90">Klik tombol di bawah dan jadilah bagian dari tim kami.</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcWbP0uw4Dk7ACSgkFbN0InpxyMRkp5z5oKwpQIraCfcUGkw/viewform" 
+     target="_blank"
+     class="bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-110 transition duration-300">
+     Daftar Sekarang
+  </a>
+</section>
+
+<footer class="bg-black text-white text-center py-6">
 © 2026 Kujang Bogor Volleyball Club | Kota Bogor
 </footer>
 
 <script>
-
-function loginAdmin(){
-    var pass = document.getElementById('adminPass').value;
-    if(pass === "kujang2026"){
-        document.getElementById('adminStatus').innerHTML = "Login Berhasil ✅";
-    } else {
-        document.getElementById('adminStatus').innerHTML = "Password Salah ❌";
-    }
-}
-
-function toggleAdmin(){
-    document.getElementById('adminPopup').classList.toggle('hidden');
-}
-</script>
-
-<!-- STATISTIK SECTION -->
-<section class="py-16 text-center bg-black text-white">
-<h2 class="text-3xl font-bold mb-12">Statistik Club</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-    <div>
-        <h3 class="text-5xl font-extrabold counter" data-target="120">0</h3>
-        <p class="mt-2">Jumlah Atlet</p>
-    </div>
-    <div>
-        <h3 class="text-5xl font-extrabold counter" data-target="15">0</h3>
-        <p class="mt-2">Prestasi Diraih</p>
-    </div>
-    <div>
-        <h3 class="text-5xl font-extrabold counter" data-target="2018">0</h3>
-        <p class="mt-2">Tahun Berdiri</p>
-    </div>
-</div>
-</section>
-
-<style>
-.fade-section{opacity:0; transform:translateY(40px); transition:all 1s ease;}
-.fade-section.show{opacity:1; transform:translateY(0);}
-@media(max-width:768px){
-    h1{font-size:2rem !important;}
-    h2{font-size:1.5rem !important;}
-    section{padding-top:3rem !important; padding-bottom:3rem !important;}
-}
-</style>
-
-<script>
-// FADE IN ON SCROLL
 const faders = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -209,34 +132,6 @@ faders.forEach(sec=>{
     sec.classList.add('fade-section');
     observer.observe(sec);
 });
-
-// COUNTER ANIMATION
-const counters = document.querySelectorAll('.counter');
-const speed = 200;
-
-const counterObserver = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            const counter = entry.target;
-            const target = +counter.getAttribute('data-target');
-            const increment = target / speed;
-            let count = 0;
-            const update = ()=>{
-                count += increment;
-                if(count < target){
-                    counter.innerText = Math.floor(count);
-                    requestAnimationFrame(update);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            update();
-            counterObserver.unobserve(counter);
-        }
-    });
-},{threshold:0.5});
-
-counters.forEach(c=>counterObserver.observe(c));
 </script>
 
 </body>

@@ -9,128 +9,209 @@
 <style>
 html { scroll-behavior: smooth; }
 body { font-family: 'Poppins', sans-serif; background:black; }
-.fade-section{opacity:0; transform:translateY(60px) scale(0.98); transition:all 1.2s ease;}
-.fade-section.show{opacity:1; transform:translateY(0) scale(1);}
+
+/* SCROLL UPGRADE */
+.fade-section {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+    filter: blur(10px);
+    transition: all 1.2s cubic-bezier(0.2, 0.65, 0.3, 0.9);
+}
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* LOGO */
+.hero-glow {
+    animation: glowPulse 3s ease-in-out infinite alternate;
+}
+@keyframes glowPulse {
+    from { filter: drop-shadow(0 0 10px rgba(0,255,150,0.4)); }
+    to { filter: drop-shadow(0 0 40px rgba(0,255,150,0.9)); }
+}
+
+.parallax-bg {
+    transform: translateY(0);
+    transition: transform 0.2s linear;
+}
+
+/* CARD */
+.card-hover {
+    transition: all 0.4s ease;
+}
+.card-hover:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 30px rgba(0,255,150,0.3);
+}
+
+/* SLIDER */
+.slider{display:flex; transition:1s;}
+.slider img{width:100%; flex-shrink:0;}
 </style>
 </head>
+
 <body class="text-white">
 
-<!-- HERO DRAMATIC -->
-<section class="relative text-white text-center py-32 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-black via-green-900 to-black opacity-95"></div>
-  <div class="relative z-10">
-      <div class="flex justify-center mb-8">
-          <img src="logo.png" class="w-44 md:w-60 drop-shadow-[0_0_40px_rgba(255,255,255,0.6)] animate-pulse">
-      </div>
-      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-wide">
-        KUJANG BOGOR
-      </h1>
-      <p class="text-xl md:text-2xl mb-10 text-white/80">
-        Membangun Mental Juara Sejak Usia Dini
-      </p>
-      <a href="#daftar"
-         class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl transition duration-500 hover:scale-110 animate-bounce">
-         Bergabung Sekarang
-      </a>
-  </div>
+<!-- HERO -->
+<section class="relative text-center py-32 overflow-hidden">
+
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<img src="logo.png" class="parallax-bg w-[90%] md:w-[60%] opacity-10 blur-sm">
+</div>
+
+<div class="absolute inset-0 bg-gradient-to-br from-black via-green-900 to-black opacity-95"></div>
+
+<div class="relative z-10">
+<div class="flex justify-center mb-8">
+<img src="logo.png" class="w-44 md:w-60 hero-glow transition duration-700 hover:scale-110">
+</div>
+
+<h1 class="text-5xl md:text-7xl font-extrabold mb-6">KUJANG BOGOR</h1>
+<p class="text-xl md:text-2xl mb-10 text-white/80">Membangun Mental Juara Sejak Usia Dini</p>
+
+<a href="#daftar" class="bg-orange-500 px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-110 transition animate-bounce">
+Bergabung Sekarang
+</a>
+</div>
 </section>
 
 <!-- VISI MISI -->
 <section class="py-24 bg-gradient-to-b from-black to-green-900 text-center px-6">
-  <h2 class="text-4xl font-extrabold mb-10">Visi & Misi Club</h2>
-  <div class="max-w-4xl mx-auto space-y-8">
-      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20">
-          <h3 class="text-2xl font-bold mb-4">Visi</h3>
-          <p class="text-white/80">Tuliskan visi resmi club sesuai AD/ART di sini.</p>
-      </div>
-      <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20">
-          <h3 class="text-2xl font-bold mb-4">Misi</h3>
-          <p class="text-white/80">Tuliskan misi resmi club sesuai AD/ART di sini.</p>
-      </div>
-  </div>
+<h2 class="text-4xl font-extrabold mb-10">Visi & Misi Club</h2>
+
+<div class="max-w-4xl mx-auto space-y-8">
+
+<div class="bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<h3 class="text-2xl font-bold mb-4">Visi</h3>
+<p class="text-white/80">
+Guna memberikan sarana dan prasarana bagi calon atlet bola voli secara dini serta konsisten dalam berlatih, sehingga terbentuk jasmani dan rohani yang sehat, menguasai permainan bola voli untuk mencapai prestasi yang optimal berguna bagi bangsa dan negara
+</p>
+</div>
+
+<div class="bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<h3 class="text-2xl font-bold mb-4">Misi</h3>
+<div class="text-white/80 text-left space-y-3">
+<p>1. Menyediakan sarana latihan yang memadai</p>
+<p>2. Program latihan terstruktur</p>
+<p>3. Membentuk mental dan fisik</p>
+<p>4. Mengembangkan teknik</p>
+<p>5. Mencetak atlet berprestasi</p>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- KENAPA PILIH KAMI -->
+<!-- FILOSOFI -->
 <section class="py-24 bg-black text-center px-6">
-  <h2 class="text-4xl font-extrabold mb-16">Kenapa Memilih Kami?</h2>
-  <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <h3 class="font-bold mb-3">Program Terstruktur</h3>
-          <p class="text-white/70 text-sm">Latihan dirancang sesuai usia dan level kemampuan.</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <h3 class="font-bold mb-3">Pelatih Berpengalaman</h3>
-          <p class="text-white/70 text-sm">Dibimbing oleh pelatih yang kompeten dan disiplin.</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <h3 class="font-bold mb-3">Fokus Karakter</h3>
-          <p class="text-white/70 text-sm">Membangun mental, disiplin, dan sportivitas.</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <h3 class="font-bold mb-3">Lingkungan Positif</h3>
-          <p class="text-white/70 text-sm">Komunitas yang sehat dan suportif bagi perkembangan anak.</p>
-      </div>
-  </div>
+<h2 class="text-4xl font-extrabold mb-10">Filosofi Kujang</h2>
+<div class="max-w-4xl mx-auto bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<p class="text-white/80">
+Kujang adalah senjata tradisional masyarakat Sunda yang muncul pada abad ke-8. Kujang melambangkan keberanian, ketajaman berpikir, kehormatan, serta semangat juang yang tinggi. Nilai-nilai tersebut menjadi dasar semangat Kujang Bogor Volleyball Club dalam membina atlet yang disiplin, berkarakter, dan bermental juara.
+</p>
+</div>
 </section>
 
-<!-- JADWAL & LOKASI -->
-<section class="py-24 bg-gradient-to-b from-green-900 to-black text-center px-6">
-  <h2 class="text-4xl font-extrabold mb-12">Jadwal & Lokasi Latihan</h2>
-  <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl border border-white/20 space-y-4">
-      <p>📍 Andy Futsal Kencana, Jl. Raya Kencana No.2, Tanah Sereal, Kota Bogor</p>
-      <p>📅 Selasa, Kamis, Sabtu, Minggu</p>
-      <p>⏰ 15.00 – 19.00 WIB</p>
-      <p>👥 Usia 7 – 17 Tahun</p>
-  </div>
-</section>
-
-<!-- TESTIMONI -->
+<!-- KEUNGGULAN -->
 <section class="py-24 bg-black text-center px-6">
-  <h2 class="text-4xl font-extrabold mb-16">Testimoni Orang Tua</h2>
-  <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <p class="italic text-white/80">"Anak saya menjadi lebih disiplin dan percaya diri sejak bergabung."</p>
-          <p class="mt-4 font-bold">— Orang Tua Atlet U-13</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <p class="italic text-white/80">"Latihannya terstruktur dan pelatihnya sangat profesional."</p>
-          <p class="mt-4 font-bold">— Orang Tua Atlet U-15</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-xl border border-white/20">
-          <p class="italic text-white/80">"Lingkungan yang positif untuk perkembangan karakter anak."</p>
-          <p class="mt-4 font-bold">— Orang Tua Atlet U-11</p>
-      </div>
-  </div>
+<h2 class="text-4xl font-extrabold mb-16">Kenapa Memilih Kami?</h2>
+<div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Program Terstruktur</div>
+<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Pelatih Berpengalaman</div>
+<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Fokus Karakter</div>
+<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Lingkungan Positif</div>
+</div>
 </section>
 
-<!-- CTA PENDAFTARAN -->
-<section id="daftar" class="py-24 bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-white text-center">
-  <h2 class="text-4xl font-extrabold mb-6">Siap Bergabung?</h2>
-  <p class="mb-10 text-white/90">Klik tombol di bawah dan jadilah bagian dari tim kami.</p>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcWbP0uw4Dk7ACSgkFbN0InpxyMRkp5z5oKwpQIraCfcUGkw/viewform" 
-     target="_blank"
-     class="bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-110 transition duration-300">
-     Daftar Sekarang
-  </a>
+<!-- JUMLAH ATLET -->
+<section class="py-24 bg-gradient-to-b from-black to-green-900 text-center px-6">
+<h2 class="text-4xl font-extrabold mb-16">Jumlah Atlet</h2>
+<div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<h3 class="text-xl text-blue-400">Atlet Putra</h3>
+<p class="text-5xl font-extrabold counter" data-target="45">0</p>
+</div>
+<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<h3 class="text-xl text-pink-400">Atlet Putri</h3>
+<p class="text-5xl font-extrabold counter" data-target="38">0</p>
+</div>
+<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<h3 class="text-xl text-green-400">Total Atlet</h3>
+<p class="text-5xl font-extrabold counter" data-target="83">0</p>
+</div>
+</div>
 </section>
 
-<footer class="bg-black text-white text-center py-6">
-© 2026 Kujang Bogor Volleyball Club | Kota Bogor
+<!-- GALERI -->
+<section class="py-24 bg-black text-center px-6">
+<h2 class="text-4xl font-extrabold mb-10">Galeri Kegiatan</h2>
+<div class="max-w-4xl mx-auto overflow-hidden rounded-2xl">
+<div id="slider" class="slider">
+<img src="https://source.unsplash.com/800x500/?volleyball">
+<img src="https://source.unsplash.com/800x500/?volleyball,training">
+<img src="https://source.unsplash.com/800x500/?sports,team">
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="daftar" class="py-24 bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-center">
+<h2 class="text-4xl font-extrabold mb-6">Siap Bergabung?</h2>
+<a href="#" class="bg-white text-green-600 px-10 py-4 rounded-full font-bold hover:scale-110 transition">
+Daftar Sekarang
+</a>
+</section>
+
+<footer class="bg-black text-center py-6">
+© 2026 Kujang Bogor Volleyball Club
 </footer>
 
 <script>
+// SCROLL
 const faders = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
+entries.forEach(entry => {
+if(entry.isIntersecting){ entry.target.classList.add('show'); }
+});
 },{threshold:0.2});
 
-faders.forEach(sec=>{
-    sec.classList.add('fade-section');
-    observer.observe(sec);
+faders.forEach(sec=>{ sec.classList.add('fade-section'); observer.observe(sec); });
+
+// PARALLAX
+window.addEventListener("scroll", function(){
+const scrollY = window.scrollY;
+const bg = document.querySelector(".parallax-bg");
+if(bg){ bg.style.transform = "translateY(" + scrollY * 0.3 + "px)"; }
+});
+
+// SLIDER
+let index=0;
+setInterval(()=>{
+index++;
+if(index>2) index=0;
+document.getElementById("slider").style.transform=`translateX(-${index*100}%)`;
+},3000);
+
+// COUNTER UPGRADE
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
+
+counters.forEach(counter => {
+const animate = () => {
+const value = +counter.getAttribute('data-target');
+const data = +counter.innerText;
+const time = value / speed;
+
+if(data < value){
+counter.innerText = Math.ceil(data + time);
+setTimeout(animate, 15);
+} else {
+counter.innerText = value;
+}
+};
+animate();
 });
 </script>
 

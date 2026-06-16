@@ -46,6 +46,134 @@ body { font-family: 'Poppins', sans-serif; background:black; }
     box-shadow: 0 0 30px rgba(0,255,150,0.3);
 }
 
+/* AURORA BACKGROUND */
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,255,150,.12), transparent 35%),
+radial-gradient(circle at 80% 30%, rgba(0,150,255,.10), transparent 35%),
+radial-gradient(circle at 50% 80%, rgba(255,120,0,.08), transparent 35%);
+animation: auroraMove 18s ease infinite;
+pointer-events:none;
+z-index:-1;
+}
+
+@keyframes auroraMove{
+0%{transform:translate(0,0);}
+50%{transform:translate(-40px,-20px);}
+100%{transform:translate(0,0);}
+}
+
+/* GRADIENT TITLE */
+.gradient-text{
+background:linear-gradient(90deg,#00ff95,#00bfff,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* GLASS */
+.glass{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.12);
+}
+
+/* GLOW CARD */
+.glow-card{
+position:relative;
+overflow:hidden;
+}
+
+.glow-card::before{
+content:'';
+position:absolute;
+width:200%;
+height:200%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(0,255,150,.15),
+transparent
+);
+top:-50%;
+left:-50%;
+transform:rotate(25deg);
+animation: shine 8s linear infinite;
+}
+
+@keyframes shine{
+0%{transform:translateX(-100%) rotate(25deg);}
+100%{transform:translateX(100%) rotate(25deg);}
+}
+
+/* BUTTON SHINE */
+.btn-premium{
+position:relative;
+overflow:hidden;
+}
+
+.btn-premium::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
+background:rgba(255,255,255,.3);
+transform:skewX(-25deg);
+animation:btnshine 4s infinite;
+}
+
+@keyframes btnshine{
+100%{
+left:140%;
+}
+}
+
+/* FLOATING PARTICLES */
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,.25);
+animation:float 12s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
+
+/* SPOTLIGHT */
+#spotlight{
+position:fixed;
+width:300px;
+height:300px;
+border-radius:50%;
+background:radial-gradient(circle,
+rgba(0,255,150,.12),
+transparent 70%);
+pointer-events:none;
+z-index:999;
+transform:translate(-50%,-50%);
+}
+
+/* FOOTER GLOW */
+.footer-glow{
+border-top:1px solid rgba(255,255,255,.08);
+box-shadow:0 -10px 30px rgba(0,255,150,.08);
+}
+
 /* SLIDER */
 .slider{display:flex; transition:1s;}
 .slider img{width:100%; flex-shrink:0;}
@@ -68,7 +196,7 @@ body { font-family: 'Poppins', sans-serif; background:black; }
 <img src="logo.png" class="w-44 md:w-60 hero-glow transition duration-700 hover:scale-110">
 </div>
 
-<h1 class="text-5xl md:text-7xl font-extrabold mb-6">KUJANG BOGOR</h1>
+<h1 class="text-5xl md:text-7xl font-extrabold mb-6 gradient-text">KUJANG BOGOR</h1>
 <p class="text-xl md:text-2xl mb-10 text-white/80">Membangun Mental Juara Sejak Usia Dini</p>
 
 <a href="#daftar" class="bg-orange-500 px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-110 transition animate-bounce">
@@ -83,14 +211,14 @@ Bergabung Sekarang
 
 <div class="max-w-4xl mx-auto space-y-8">
 
-<div class="bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<div class="glass glow-card p-8 rounded-2xl card-hover">
 <h3 class="text-2xl font-bold mb-4">Visi</h3>
 <p class="text-white/80">
 Guna memberikan sarana dan prasarana bagi calon atlet bola voli secara dini serta konsisten dalam berlatih, sehingga terbentuk jasmani dan rohani yang sehat, menguasai permainan bola voli untuk mencapai prestasi yang optimal berguna bagi bangsa dan negara
 </p>
 </div>
 
-<div class="bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<div class="glass glow-card p-8 rounded-2xl card-hover">
 <h3 class="text-2xl font-bold mb-4">Misi</h3>
 <div class="text-white/80 text-left space-y-3">
 <p>1. Menyediakan sarana latihan yang memadai</p>
@@ -107,7 +235,7 @@ Guna memberikan sarana dan prasarana bagi calon atlet bola voli secara dini sert
 <!-- FILOSOFI -->
 <section class="py-24 bg-black text-center px-6">
 <h2 class="text-4xl font-extrabold mb-10">Filosofi Kujang</h2>
-<div class="max-w-4xl mx-auto bg-white/10 p-8 rounded-2xl border border-white/20 card-hover">
+<div class="max-w-4xl mx-auto glass glow-card p-8 rounded-2xl card-hover">
 <p class="text-white/80">
 Kujang adalah senjata tradisional masyarakat Sunda yang muncul pada abad ke-8. Kujang melambangkan keberanian, ketajaman berpikir, kehormatan, serta semangat juang yang tinggi. Nilai-nilai tersebut menjadi dasar semangat Kujang Bogor Volleyball Club dalam membina atlet yang disiplin, berkarakter, dan bermental juara.
 </p>
@@ -118,10 +246,10 @@ Kujang adalah senjata tradisional masyarakat Sunda yang muncul pada abad ke-8. K
 <section class="py-24 bg-black text-center px-6">
 <h2 class="text-4xl font-extrabold mb-16">Kenapa Memilih Kami?</h2>
 <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Program Terstruktur</div>
-<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Pelatih Berpengalaman</div>
-<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Fokus Karakter</div>
-<div class="bg-white/10 p-6 rounded-2xl border border-white/20 card-hover">Lingkungan Positif</div>
+<div class="glass glow-card p-8 rounded-2xl card-hover">Program Terstruktur</div>
+<div class="glass glow-card p-8 rounded-2xl card-hover">Pelatih Berpengalaman</div>
+<div class="glass glow-card p-8 rounded-2xl card-hover">Fokus Karakter</div>
+<div class="glass glow-card p-8 rounded-2xl card-hover">Lingkungan Positif</div>
 </div>
 </section>
 
@@ -129,15 +257,15 @@ Kujang adalah senjata tradisional masyarakat Sunda yang muncul pada abad ke-8. K
 <section class="py-24 bg-gradient-to-b from-black to-green-900 text-center px-6">
 <h2 class="text-4xl font-extrabold mb-16">Jumlah Atlet</h2>
 <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<div class="glass glow-card p-8 rounded-2xl card-hover">
 <h3 class="text-xl text-blue-400">Atlet Putra</h3>
 <p class="text-5xl font-extrabold counter" data-target="45">0</p>
 </div>
-<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<div class="glass glow-card p-8 rounded-2xl card-hover">
 <h3 class="text-xl text-pink-400">Atlet Putri</h3>
 <p class="text-5xl font-extrabold counter" data-target="38">0</p>
 </div>
-<div class="bg-white/10 p-10 rounded-2xl border border-white/20 card-hover">
+<div class="glass glow-card p-8 rounded-2xl card-hover">
 <h3 class="text-xl text-green-400">Total Atlet</h3>
 <p class="text-5xl font-extrabold counter" data-target="83">0</p>
 </div>
@@ -159,7 +287,7 @@ Kujang adalah senjata tradisional masyarakat Sunda yang muncul pada abad ke-8. K
 <!-- CTA -->
 <section id="daftar" class="py-24 bg-gradient-to-r from-green-600 via-blue-500 to-orange-500 text-center">
 <h2 class="text-4xl font-extrabold mb-6">Siap Bergabung?</h2>
-<a href="#" class="bg-white text-green-600 px-10 py-4 rounded-full font-bold hover:scale-110 transition">
+<a href="#" class="btn-premium bg-orange-500 px-10 py-4 rounded-full font-bold text-lg shadow-2xl hover:scale-110 transition">
 Daftar Sekarang
 </a>
 </section>
@@ -215,5 +343,45 @@ animate();
 });
 </script>
 
+<script>
+
+/* PARTICLES */
+const particles=document.getElementById('particles');
+
+for(let i=0;i<35;i++){
+
+const p=document.createElement('div');
+
+p.className='particle';
+
+p.style.left=Math.random()*100+'%';
+
+p.style.width=(Math.random()*5+2)+'px';
+
+p.style.height=p.style.width;
+
+p.style.animationDuration=
+(Math.random()*8+8)+'s';
+
+p.style.animationDelay=
+(Math.random()*10)+'s';
+
+particles.appendChild(p);
+
+}
+
+/* SPOTLIGHT */
+const spotlight=document.getElementById('spotlight');
+
+document.addEventListener('mousemove',(e)=>{
+spotlight.style.left=e.clientX+'px';
+spotlight.style.top=e.clientY+'px';
+});
+
+</script>
+
 </body>
+<div id="spotlight"></div>
+
+<div id="particles"></div>
 </html>
